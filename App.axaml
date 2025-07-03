@@ -1,0 +1,22 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="FluentDesignDemo.App"
+             xmlns:local="using:FluentDesignDemo"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme />
+        <StyleInclude Source="avares://FluentDesignDemo/Assets/Icons.axaml"></StyleInclude>
+    </Application.Styles>
+
+    <Application.Resources>
+        <SolidColorBrush x:Key="NavSplitViewBackground">#1e1e1e</SolidColorBrush>
+        <SolidColorBrush x:Key="NavPaneBackground">#1e1e1e</SolidColorBrush>
+    </Application.Resources> 
+
+</Application>
