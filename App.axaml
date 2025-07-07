@@ -2,12 +2,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="FluentDesignDemo.App"
              xmlns:local="using:FluentDesignDemo"
+             xmlns:yesno="clr-namespace:FluentDesignDemo.Dialogs"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
         <local:ViewLocator/>
+
+
+         <DataTemplate DataType="{x:Type yesno:YesNoDialogViewModel}">
+            <yesno:YesNoDialogView />
+        </DataTemplate>
     </Application.DataTemplates>
+
+  
+         
   
     <Application.Styles>
         <FluentTheme />
