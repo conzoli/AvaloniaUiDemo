@@ -15,6 +15,8 @@ public class DialogService : IDialogService
             DataContext = viewModel
         };
 
+        dialogWindow.Title = viewModel.Title;
+
         // Show dialog and wait for result
         var mainWindow = Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop 
             ? desktop.MainWindow

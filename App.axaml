@@ -3,6 +3,7 @@
              x:Class="FluentDesignDemo.App"
              xmlns:local="using:FluentDesignDemo"
              xmlns:yesno="clr-namespace:FluentDesignDemo.Dialogs"
+             xmlns:alert="clr-namespace:FluentDesignDemo.Dialogs"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
@@ -13,6 +14,11 @@
          <DataTemplate DataType="{x:Type yesno:YesNoDialogViewModel}">
             <yesno:YesNoDialogView />
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type alert:AlertDialogViewModel}">
+            <alert:AlertDialogView />
+        </DataTemplate>
+
     </Application.DataTemplates>
 
   

@@ -21,8 +21,8 @@ public partial class ButtonPageViewModel : ViewModelBase
     private async Task ClickMe()
     {
 
-         var dialog = new YesNoDialogViewModel("Tut das hier?", "Ja oder Nein? Das ist hier die Frage");
-         var result = await _dialogService.OpenDialog(dialog);
+        var dialog = new YesNoDialogViewModel("Tut das hier?", "Ja oder Nein? Das ist hier die Frage");
+        var result = await _dialogService.OpenDialog(dialog);
 
 
         switch (result)
@@ -37,6 +37,13 @@ public partial class ButtonPageViewModel : ViewModelBase
                 Console.WriteLine("Dialog was closed without a selection");
                 break;
         }
+    }
+
+    [RelayCommand]
+    private async Task ClickDialog()
+    {
+        var dialog = new AlertDialogViewModel("Hallo das ist ein Alert!");
+        var result = await _dialogService.OpenDialog(dialog);
     }
 
 }

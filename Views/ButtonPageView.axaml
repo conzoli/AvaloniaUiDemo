@@ -14,8 +14,14 @@
 
       <Button 
         Margin="20,20,20,20"
-        Content="Klick me"
+        Content="YesNoDialog"
         Command="{Binding ClickMeCommand}"
+      />
+
+      <Button 
+        Margin="20,20,20,20"
+        Content="AlertDialog"
+        Command="{Binding ClickDialogCommand}"
       />
 
     </StackPanel>
