@@ -3,8 +3,9 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Threading;
 using Avalonia.Controls.ApplicationLifetimes;
+using FluentDesignDemo.Dialogs;
 
-namespace FluentDesignDemo.Dialogs;
+namespace FluentDesignDemo.Services;
 
 public class DialogService : IDialogService
 {

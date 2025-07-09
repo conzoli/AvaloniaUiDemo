@@ -26,6 +26,24 @@
 
        <Button 
         Margin="20,20,20,20"
+        Content="Info Toast"
+        Command="{Binding ShowInfoToastCommand}"
+      />
+
+       <Button 
+        Margin="20,20,20,20"
+        Content="Success Toast"
+        Command="{Binding ShowSuccessToastCommand}"
+      />
+
+       <Button 
+        Margin="20,20,20,20"
+        Content="Warning Toast"
+        Command="{Binding ShowWaringToastCommand}"
+      />
+
+       <Button 
+        Margin="20,20,20,20"
         Content="TestErrorToast"
         Command="{Binding ShowErrorToastCommand}"
       />

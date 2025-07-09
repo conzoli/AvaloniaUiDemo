@@ -32,9 +32,11 @@ public partial class ButtonPageViewModel : ViewModelBase
         {
             case DialogResults.Yes:
                 Console.WriteLine("User clicked Yes!");
+                _toastService.ShowSuccess("You clicked YES");
                 break;
             case DialogResults.No:
                 Console.WriteLine("User clicked No!");
+                _toastService.ShowError("You clikced NO");
                 break;
             default:
                 Console.WriteLine("Dialog was closed without a selection");
@@ -49,6 +51,24 @@ public partial class ButtonPageViewModel : ViewModelBase
         var result = await _dialogService.OpenDialog(dialog);
     }
 
+
+    [RelayCommand]
+    private void ShowInfoToast()
+    {
+        _toastService.Show("Info Toast ....");
+    }
+
+    [RelayCommand]
+    private void ShowSuccessToast()
+    {
+        _toastService.ShowSuccess("Success Toast ...");
+    }
+
+    [RelayCommand]
+    private void ShowWaringToast()
+    {
+        _toastService.ShowWarning("Warning Toast ....");
+    }
 
     [RelayCommand]
     private void ShowErrorToast()

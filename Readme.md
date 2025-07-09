@@ -22,4 +22,5 @@ https://github.com/MammaMiaDev/avaloniaui-the-series/blob/main/src/AvaloniaMiaDe
 
 Things to Add:
 
-- Toast-Service
+ok Toast-Service
+  - Add Icon to the Toast

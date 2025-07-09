@@ -5,8 +5,9 @@
              xmlns:models="clr-namespace:FluentDesignDemo.Models"
              xmlns:converters="clr-namespace:FluentDesignDemo.Converters"
              mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="80"
-             x:Class="FluentDesignDemo.Controls.ToastControl"
-             x:DataType="models:Toast">
+             x:Class="FluentDesignDemo.Toasts.ToastControl"
+             x:DataType="models:Toast"
+             MinHeight="40">
   <UserControl.Resources>
     <converters:ToastTypeToClassConverter x:Key="ToastTypeToClassConverter"/>
   </UserControl.Resources>
@@ -24,7 +25,7 @@
   
   <Border Background="{Binding Background}">
     <StackPanel>
-      <TextBlock Text="{Binding Message}" Classes="toast-text"/>
+      <TextBlock Text="{Binding Message}" Classes="toast-text" Margin="12"/>
     </StackPanel>
   </Border>
 </UserControl>

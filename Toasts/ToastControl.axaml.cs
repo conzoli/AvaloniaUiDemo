@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace FluentDesignDemo.Controls;
+namespace FluentDesignDemo.Toasts;
 
 public partial class ToastControl : UserControl
 {
