@@ -6,12 +6,22 @@ using Avalonia.Controls;
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FluentDesignDemo.Models;
+using FluentDesignDemo.Services;
 using FluentDesignDemo.Views;
 
 namespace FluentDesignDemo.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
+    private readonly ToastService _toastService;
+
+    public MainWindowViewModel()
+    {
+        _toastService = ToastService.Instance;
+    }
+
+    public ObservableCollection<Toast> Toasts => _toastService.Toasts;
 
     [ObservableProperty]
     private bool _isPaneOpen = true;

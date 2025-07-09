@@ -24,6 +24,14 @@
         Command="{Binding ClickDialogCommand}"
       />
 
+       <Button 
+        Margin="20,20,20,20"
+        Content="TestErrorToast"
+        Command="{Binding ShowErrorToastCommand}"
+      />
+
+
+
     </StackPanel>
   </ScrollViewer>
 

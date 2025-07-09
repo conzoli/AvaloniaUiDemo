@@ -17,3 +17,9 @@ https://avaloniaui.github.io/icons.html
 GitHub:
 
 https://github.com/MammaMiaDev/avaloniaui-the-series/blob/main/src/AvaloniaMiaDev/Views/ButtonPageView.axaml
+
+
+
+Things to Add:
+
+- Toast-Service

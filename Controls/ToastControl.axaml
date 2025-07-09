@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:FluentDesignDemo.Models"
+             xmlns:converters="clr-namespace:FluentDesignDemo.Converters"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="80"
+             x:Class="FluentDesignDemo.Controls.ToastControl"
+             x:DataType="models:Toast">
+  <UserControl.Resources>
+    <converters:ToastTypeToClassConverter x:Key="ToastTypeToClassConverter"/>
+  </UserControl.Resources>
+  <UserControl.Styles>
+    <Style Selector="TextBlock.toast-text">
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="TextWrapping" Value="Wrap"/>
+      <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
+    <Style Selector="Border.warning TextBlock">
+      <Setter Property="Foreground" Value="Black"/>
+    </Style>
+  </UserControl.Styles>
+  
+  <Border Background="{Binding Background}">
+    <StackPanel>
+      <TextBlock Text="{Binding Message}" Classes="toast-text"/>
+    </StackPanel>
+  </Border>
+</UserControl>

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.Input;
 using FluentDesignDemo.Dialogs;
+using FluentDesignDemo.Services;
 
 namespace FluentDesignDemo.ViewModels;
 
@@ -10,10 +11,12 @@ public partial class ButtonPageViewModel : ViewModelBase
 {
 
     private readonly DialogService _dialogService;
+    private readonly ToastService _toastService;
 
     public ButtonPageViewModel()
     {
         _dialogService = new DialogService();
+        _toastService = ToastService.Instance;
     }
 
 
@@ -44,6 +47,13 @@ public partial class ButtonPageViewModel : ViewModelBase
     {
         var dialog = new AlertDialogViewModel("Hallo das ist ein Alert!");
         var result = await _dialogService.OpenDialog(dialog);
+    }
+
+
+    [RelayCommand]
+    private void ShowErrorToast()
+    {
+        _toastService.ShowError("Something went wrong!");
     }
 
 }

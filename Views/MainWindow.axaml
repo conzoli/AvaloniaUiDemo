@@ -3,6 +3,8 @@
         xmlns:vm="using:FluentDesignDemo.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:FluentDesignDemo.Controls"
+        xmlns:converters="clr-namespace:FluentDesignDemo.Converters"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="FluentDesignDemo.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -11,13 +13,18 @@
         Height="600"
         Width="800">
 
+    <Window.Resources>
+        <converters:ToastTypeConverter x:Key="ToastTypeConverter"/>
+    </Window.Resources>
+
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <MainWindowViewModel/>
     </Design.DataContext>
 
-    <SplitView IsPaneOpen="{Binding IsPaneOpen}"
+    <Panel>
+        <SplitView IsPaneOpen="{Binding IsPaneOpen}"
                OpenPaneLength="300"
                CompactPaneLength="48"
                DisplayMode="CompactInline"
@@ -53,4 +60,16 @@
         </SplitView.Content>
     </SplitView>
 
+        <ItemsControl ItemsSource="{Binding Toasts}"
+                      VerticalAlignment="Bottom"
+                      HorizontalAlignment="Right"
+                      Margin="0 0 16 16"
+                      Width="300">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <controls:ToastControl />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Panel>
 </Window>
