@@ -24,8 +24,9 @@
   </UserControl.Styles>
   
   <Border Background="{Binding Background}">
-    <StackPanel>
-      <TextBlock Text="{Binding Message}" Classes="toast-text" Margin="12"/>
+    <StackPanel Orientation="Horizontal">
+      <PathIcon Data="{Binding Icon}" Width="28" Height="28" Margin="10"/>
+      <TextBlock Text="{Binding Message}" Classes="toast-text" Margin="2,12,12,12"/>
     </StackPanel>
   </Border>
 </UserControl>
