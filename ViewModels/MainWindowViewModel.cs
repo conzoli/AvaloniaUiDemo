@@ -15,10 +15,15 @@ namespace FluentDesignDemo.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
     private readonly ToastService _toastService;
+    private readonly DialogService _dialogService;
+    private readonly IServiceProvider _serviceProvider;
 
-    public MainWindowViewModel()
+    public MainWindowViewModel(ToastService toastService, DialogService dialogService, IServiceProvider serviceProvider)
     {
-        _toastService = ToastService.Instance;
+        _toastService = toastService;
+        _dialogService = dialogService;
+        _serviceProvider = serviceProvider;
+        _currentPage = _serviceProvider.GetService(typeof(HomePageViewModel)) as ViewModelBase ?? new HomePageViewModel();
     }
 
     public ObservableCollection<Toast> Toasts => _toastService.Toasts;
@@ -28,7 +33,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
 
     [ObservableProperty]
-    private ViewModelBase _currentPage = new HomePageViewModel();
+    private ViewModelBase _currentPage;
 
 
     [ObservableProperty]
@@ -38,9 +43,9 @@ public partial class MainWindowViewModel : ViewModelBase
     partial void OnSelectedListItemChanged(ListItemTemplate? value)
     {
         if (value is null) return;
-        var instance = Activator.CreateInstance(value.ModelType);
+        var instance = _serviceProvider.GetService(value.ModelType) as ViewModelBase;
         if (instance is null) return;
-        CurrentPage = (ViewModelBase)instance;
+        CurrentPage = instance;
     }
 
 

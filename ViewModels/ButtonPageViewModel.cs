@@ -13,10 +13,10 @@ public partial class ButtonPageViewModel : ViewModelBase
     private readonly DialogService _dialogService;
     private readonly ToastService _toastService;
 
-    public ButtonPageViewModel()
+    public ButtonPageViewModel(ToastService toastService, DialogService dialogService)
     {
-        _dialogService = new DialogService();
-        _toastService = ToastService.Instance;
+        _toastService = toastService;
+        _dialogService = dialogService;
     }
 
 

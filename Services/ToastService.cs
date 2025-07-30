@@ -11,14 +11,12 @@ namespace FluentDesignDemo.Services;
 
 public partial class ToastService : ObservableObject
 {
-    private static readonly Lazy<ToastService> _instance = new(() => new ToastService());
-    public static ToastService Instance => _instance.Value;
-
     private readonly Timer _cleanupTimer;
     [ObservableProperty]
     private ObservableCollection<Toast> _toasts = new();
 
-    private ToastService()
+    // Make constructor public for DI
+    public ToastService()
     {
         _cleanupTimer = new Timer(1000) { AutoReset = true };
         _cleanupTimer.Elapsed += CleanupElapsedToasts;

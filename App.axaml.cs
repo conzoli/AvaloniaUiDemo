@@ -20,15 +20,19 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
-            // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
             DisableAvaloniaDataAnnotationValidation();
+            var mainWindowViewModel = (MainWindowViewModel?)Program.AppHost?.Services.GetService(typeof(MainWindowViewModel));
+            // Inject IServiceProvider into MainWindowViewModel
+            if (mainWindowViewModel != null)
+            {
+                var serviceProviderProp = typeof(MainWindowViewModel).GetField("_serviceProvider", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                serviceProviderProp?.SetValue(mainWindowViewModel, Program.AppHost?.Services);
+            }
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(),
+                DataContext = mainWindowViewModel,
             };
         }
-
         base.OnFrameworkInitializationCompleted();
     }
 
