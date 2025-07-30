@@ -30,6 +30,7 @@
                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
                     Grid.Column="0"
                     Margin="2"
+                    HorizontalAlignment="Center"
                      />
 
             <Button Content="No"
@@ -37,6 +38,7 @@
                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
                     Grid.Column="1"
                     Margin="2"
+                    HorizontalAlignment="Center"
                      />
         </Grid>
     </Grid>

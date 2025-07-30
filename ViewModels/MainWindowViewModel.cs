@@ -9,6 +9,7 @@ using CommunityToolkit.Mvvm.Input;
 using FluentDesignDemo.Models;
 using FluentDesignDemo.Services;
 using FluentDesignDemo.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FluentDesignDemo.ViewModels;
 
@@ -62,6 +63,22 @@ public partial class MainWindowViewModel : ViewModelBase
     private void TriggerPane()
     {
         IsPaneOpen = !IsPaneOpen;
+    }
+
+
+    [RelayCommand]
+    private void ShowSettingsContol()
+    {
+        var SettingsViewModel = _serviceProvider.GetService<SettingsViewModel>();
+
+        if (SettingsViewModel is null)
+        {
+            return;
+        }
+
+        CurrentPage = SettingsViewModel;
+
+    
     }
 
 }

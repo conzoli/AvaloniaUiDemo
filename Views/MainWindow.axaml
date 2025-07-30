@@ -54,6 +54,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <Button Background="#2d2d2d"  
+                        Command="{Binding ShowSettingsContolCommand}"
                         Grid.Row="2" 
                         Margin="0,0,0,5"
                         BorderBrush="Transparent"

@@ -24,6 +24,8 @@ sealed class Program
                 services.AddTransient<ViewModels.HomePageViewModel>();
                 services.AddTransient<ViewModels.ButtonPageViewModel>();
                 services.AddTransient<ViewModels.InputValidationViewModel>();
+                services.AddTransient<ViewModels.SettingsViewModel>();
+
             })
             .Build();
 
