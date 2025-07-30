@@ -32,12 +32,18 @@
                PaneBackground="{DynamicResource NavPaneBackground}"
                >
         <SplitView.Pane>
-            <StackPanel Spacing="5"
-                        Margin="5">
-                <Button  Command="{Binding TriggerPaneCommand}">
+            <Grid Margin="0,0,5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+
+                <Button  Command="{Binding TriggerPaneCommand}" Grid.Row="0" Width="43">
                     <PathIcon Data="{StaticResource LineHorizontal3Regular}"></PathIcon>
                 </Button>
-                <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedListItem}">
+                <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedListItem}"  Grid.Row="1" Margin="0,5,0,0">
                     <ListBox.ItemTemplate>
                         <DataTemplate DataType="{x:Type vm:ListItemTemplate}">
                             <StackPanel Spacing="15" Orientation="Horizontal">
@@ -47,11 +53,22 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-            </StackPanel>
+                <Button Background="#2d2d2d"  
+                        Grid.Row="2" 
+                        Margin="0,0,0,5"
+                        BorderBrush="Transparent"
+                        BorderThickness="0" > 
+                            <StackPanel Spacing="15" Orientation="Horizontal" Margin="5">
+                                <PathIcon Data="{StaticResource settingsRegular}"></PathIcon>
+                                <TextBlock Text="Settings" Width="300" />
+                            </StackPanel>
+                </Button>
+            </Grid>
         </SplitView.Pane>
         <SplitView.Content>
             <Border CornerRadius="12 0 0 0"
-                    Background="#2d2d2d">
+                    Background="#2d2d2d"
+                    Margin="5">
 
                 <TransitioningContentControl Content="{Binding CurrentPage}" />
 
