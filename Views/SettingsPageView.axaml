@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:FluentDesignDemo.ViewModels"
+             x:DataType="vm:SettingsPageViewModel"
+             x:Class="FluentDesignDemo.Views.SettingsPageView">
+    
+   <StackPanel Margin="20">
+
+      <TextBlock Margin="10 20">Settings View</TextBlock>
+
+      <Button 
+        Margin="20,20,20,20"
+        Content="Test"
+        Command="{Binding TaostCommand}"
+      />
+
+   </StackPanel>
+
+</UserControl>

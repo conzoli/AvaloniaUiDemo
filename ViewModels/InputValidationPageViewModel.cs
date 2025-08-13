@@ -6,7 +6,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace FluentDesignDemo.ViewModels;
 
-public partial class InputValidationViewModel : ViewModelBase
+public partial class InputValidationPageViewModel : ViewModelBase
 {
 
     [ObservableProperty]

@@ -6,13 +6,13 @@ using FluentDesignDemo.Services;
 
 namespace FluentDesignDemo.ViewModels;
 
-public partial class SettingsViewModel : ViewModelBase
+public partial class SettingsPageViewModel : ViewModelBase
 {
 
 
     private readonly ToastService _toastService;
 
-    public SettingsViewModel(ToastService toastService)
+    public SettingsPageViewModel(ToastService toastService)
     {
         _toastService = toastService;
     }

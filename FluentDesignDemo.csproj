@@ -25,4 +25,12 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.7" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\InputValidationPageView.axaml.cs">
+      <DependentUpon>InputValidationPageView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SettingsPageView.axaml.cs">
+      <DependentUpon>SettingsPageView.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

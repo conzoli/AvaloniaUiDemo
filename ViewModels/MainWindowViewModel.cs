@@ -40,6 +40,9 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     private ListItemTemplate? _selectedListItem;
 
+    [ObservableProperty]
+    private ListItemTemplate? _selectedSettingsItem;
+
 
     partial void OnSelectedListItemChanged(ListItemTemplate? value)
     {
@@ -47,6 +50,19 @@ public partial class MainWindowViewModel : ViewModelBase
         var instance = _serviceProvider.GetService(value.ModelType) as ViewModelBase;
         if (instance is null) return;
         CurrentPage = instance;
+
+        SelectedSettingsItem = null;
+
+    }
+
+    partial void OnSelectedSettingsItemChanged(ListItemTemplate? value)
+    {
+        if (value is null) return;
+        var instance = _serviceProvider.GetService(value.ModelType) as ViewModelBase;
+        if (instance is null) return;
+        CurrentPage = instance;
+
+        SelectedListItem = null;
     }
 
 
@@ -54,7 +70,12 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         new ListItemTemplate(typeof(HomePageViewModel), "HomeRegular"),
         new ListItemTemplate(typeof(ButtonPageViewModel),"CursorHoverRegular"),
-        new ListItemTemplate(typeof(InputValidationViewModel),"InputValidationRegular"),
+        new ListItemTemplate(typeof(InputValidationPageViewModel),"InputValidationRegular"),
+    };
+
+    public ObservableCollection<ListItemTemplate> SettingsItem { get; } = new()
+    {
+        new ListItemTemplate(typeof(SettingsPageViewModel), "SettingsRegular")
     };
 
 
@@ -66,20 +87,7 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
 
-    [RelayCommand]
-    private void ShowSettingsContol()
-    {
-        var SettingsViewModel = _serviceProvider.GetService<SettingsViewModel>();
-
-        if (SettingsViewModel is null)
-        {
-            return;
-        }
-
-        CurrentPage = SettingsViewModel;
-
-    
-    }
+   
 
 }
 
