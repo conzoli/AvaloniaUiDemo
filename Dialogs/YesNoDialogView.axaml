@@ -15,11 +15,12 @@
 
         <TextBlock Grid.Row="0"
                    Foreground="White"
+                   Margin="15"
                    Text="{Binding Message}"
                    HorizontalAlignment="Center"
                    FontSize="16" />
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Margin="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />

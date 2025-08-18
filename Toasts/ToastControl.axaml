@@ -8,9 +8,7 @@
              x:Class="FluentDesignDemo.Toasts.ToastControl"
              x:DataType="models:Toast"
              MinHeight="40">
-  <UserControl.Resources>
-    <converters:ToastTypeToClassConverter x:Key="ToastTypeToClassConverter"/>
-  </UserControl.Resources>
+
   <UserControl.Styles>
     <Style Selector="TextBlock.toast-text">
       <Setter Property="Foreground" Value="White"/>
